@@ -1,0 +1,137 @@
+1. Tech Stack (Replit Project)
+Create a full-stack Node.js + Express + React app (or Vite + React frontend with Node/Express backend in the same Replit).
+Use simple in-memory data or a JSON file for storage (no need for a real DB, but keep the code structured so DB can be added later).
+2. Features Needed
+A. Authentication – Login & Logout
+Login page:
+Fields:
+Employee ID or Email
+Password
+On successful login:
+Store auth info (simple JWT or session token) in browser storage.
+Redirect to Employee Dashboard.
+On failed login:
+Show clear error message.
+Logout:
+“Logout” button in the dashboard.
+Clears auth token/session.
+Redirect to Login page.
+Create a simple dummy user list in backend for login (e.g., 2–3 test employees).
+B. Attendance Actions (Daily)
+On the dashboard, add buttons and make them WORK with backend APIs:
+Check-In
+Check-Out
+Break Start
+Break End
+Each click must:
+Automatically capture:
+Employee ID (from logged-in user)
+Current date
+Timestamp
+Action type (checkin/checkout/break_start/break_end)
+Save entry through backend API.
+Rules:
+Employee can Check-In only once per day.
+After Check-In:
+Disable Check-In button.
+While on break:
+Disable Break Start, enable Break End.
+After Check-Out:
+Disable all action buttons for that day.
+C. Time Calculations
+For each day per employee, automatically calculate:
+Total Working Hours = time between Check-In and Check-Out.
+Total Break Time = sum of all (Break End − Break Start).
+Net Work Hours = Total Working Hours − Total Break Time.
+Show these values in the daily record.
+3. Backend API Design (Express)
+Create working REST endpoints like:
+POST /api/login
+Validates employee and returns token/basic session info.
+POST /api/attendance/checkin
+POST /api/attendance/checkout
+POST /api/attendance/break-start
+POST /api/attendance/break-end
+GET /api/attendance/today?employeeId=...
+Returns today’s attendance details (times + calculated hours).
+GET /api/attendance/history?employeeId=...&from=YYYY-MM-DD&to=YYYY-MM-DD
+Returns list of days with:
+Date
+Check-In
+Check-Out
+Total Working Hours
+Break Time
+Net Hours
+Status (Present / Absent / Half Day – you can derive based on hours)
+Keep the data in a simple in-memory structure or JSON file, e.g.:
+// Example attendance structure[
+  {
+    employeeId: "EMP001",
+    date: "2025-11-26",
+    checkinTime: "09:02",
+    checkoutTime: "18:10",
+    breaks: [
+      { startTime: "13:00", endTime: "13:30" }
+    ],
+    totalWorkingHours: "09:08",
+    breakHours: "00:30",
+    netHours: "08:38",
+    status: "Present"  }
+]
+4. Frontend (React)
+Pages/Components:
+LoginPage
+Form (Employee ID/Email, Password).
+On submit → call /api/login.
+Save token & basic employee info.
+Redirect to /dashboard.
+Dashboard
+Show greeting with employee name.
+Show today’s attendance summary:
+Today’s date.
+Check-In time (if done).
+Check-Out time (if done).
+Total Working Hours.
+Break Time.
+Net Hours.
+Buttons:
+[Check-In]
+[Break Start]
+[Break End]
+[Check-Out]
+Enable/disable buttons based on today’s state (use API data).
+Include a small section “Recent 5 days attendance” in a table.
+AttendanceHistory
+Table with:
+Date
+Check-In
+Check-Out
+Net Hours
+Status
+Filters:
+From Date
+To Date
+Button: “Load History” → calls /api/attendance/history.
+5. Validation & UX
+Show clear messages (toast/alert) for:
+“Successfully checked in”
+“Break started”
+“Break ended”
+“Successfully checked out”
+“You have already checked in today”
+“You must check in before starting a break”
+Handle edge cases:
+No multiple check-ins.
+No check-out before check-in.
+6. Quality & Structure
+The project must run inside Replit with:
+npm install
+npm run dev or similar (document in README).
+Separate frontend and backend logic clearly.
+No dummy/non-functional buttons – everything must call a real endpoint and update state.
+Add a short README in the Replit project explaining:
+How to run.
+Test credentials.
+Flow of attendance (check-in → break → check-out).
+Goal:
+Deliver a fully working HRMS login + daily attendance module (login, logout, check-in, check-out, break start/end, daily calculations, and basic history), ready to demo to employees.

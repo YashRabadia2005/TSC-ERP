@@ -1,0 +1,88 @@
+Over-Time (OT) Calculation Document for IT Company Employees
+🧩 1️⃣ Key Definitions
+Term	Meaning
+Basic Salary	Fixed wage per month (part of CTC)
+Gross Salary	Basic + HRA + other allowances
+Monthly Working Days	Typically 26 days (industry standard)
+Daily Working Hours	Mostly 8–9 hours per day
+OT Hours	Approved hours worked beyond regular working hours
+OT Rate	Extra pay rate (1.5x or 2x etc.) based on company policy
+🔢 2️⃣ Base Calculations
+✔ Daily Wage
+Daily Wage=Gross SalaryMonthly Working Days\text{Daily Wage} = \frac{\text{Gross Salary}}{\text{Monthly Working Days}}Daily Wage=Monthly Working DaysGross Salary
+✔ Hourly Wage
+Hourly Wage=Daily WageWorking Hours Per Day\text{Hourly Wage} = \frac{\text{Daily Wage}}{\text{Working Hours Per Day}}Hourly Wage=Working Hours Per DayDaily Wage
+Example:
+Gross Salary = ₹50,000
+Working Days = 26
+Working Hours per day = 9
+Daily Wage=5000026=₹1923.08\text{Daily Wage} = \frac{50000}{26} = ₹1923.08Daily Wage=2650000=₹1923.08Hourly Wage=1923.089=₹213.67\text{Hourly Wage} = \frac{1923.08}{9} = ₹213.67Hourly Wage=91923.08=₹213.67
+⚙️ 3️⃣ Overtime Rate Formula
+Different companies apply:
+Type of OT	Policy	Formula
+Normal OT (Weekdays)	1.5x pay	OT Rate = Hourly Wage × 1.5
+Weekly Off / Public Holiday OT	2x pay	OT Rate = Hourly Wage × 2
+🧮 4️⃣ Actual OT Payment Formula
+OT Amount=OT Hours×Hourly Wage×OT Rate Factor\text{OT Amount} = \text{OT Hours} \times \text{Hourly Wage} \times \text{OT Rate Factor}OT Amount=OT Hours×Hourly Wage×OT Rate Factor
+Example:
+OT Hours: 10 hours
+Rate Factor: 1.5 (Weekday)
+10×213.67×1.5=₹3,205.0510 \times 213.67 \times 1.5 = ₹3,205.0510×213.67×1.5=₹3,205.05
+📝 5️⃣ Government Compliance (India)
+✔ IT industry follows Shops & Establishment Act / IT Policy
+✔ OT must be approved by supervisor
+✔ Some states enforce → Max OT 50 hours/month
+✔ OT mandatory double rate on national holidays
+✔ Attendance & OT log must be recorded
+💼 6️⃣ Policies to Define (Company Level)
+Each IT company must clearly define:
+Policy Rule	Recommendation
+Minimum eligible OT ●	After full working hours completed
+Max OT hours/day ●	2–4 Hours
+Max OT/month ●	50 Hours
+OT Approval ●	Pre-approved in HRMS
+Meal/Travel Allowance ●	Optional for late hours
+Night OT rules (10 PM+ ) ●	Extra allowance/Conveyance
+🧘 7️⃣ Exemption Rules
+Following employees may not be eligible for OT:
+Senior Management / Leadership Roles
+Employees with flexible work hours contracts
+Freelancers / Consultants
+Companies may provide Comp-off leave instead of pay.
+📦 8️⃣ System Implementation Structure
+Required Data Fields
+Employee ID
+Employment Type
+Shift Hours: Start / End
+OT Start time & End time
+Approved OT Duration
+OT Category (Normal / Weekend / Holiday)
+Applicable Salary Structure
+Required Tables (Database)
+Table	Fields
+Employee Salary	Basic, HRA, Gross, Working Days
+Attendance Log	Entry/Exit, Breaks
+OT Request	Reason, Manager Approval, Hours
+Payroll OT	Calculated OT Amount
+🧮 9️⃣ Complete Unified Formula
+OT Pay=(Gross SalaryWorking Days×Working Hours/Day)×OT Hours×OT Rate Factor\text{OT Pay} = \left( \frac{\text{Gross Salary}}{\text{Working Days} \times \text{Working Hours/Day}} \right) \times \text{OT Hours} \times \text{OT Rate Factor}OT Pay=(Working Days×Working Hours/DayGross Salary)×OT Hours×OT Rate Factor
+✨ Final Output Example
+Parameter	Value
+Gross Salary	₹50,000
+Working Hours/Day	9
+OT Hours	8
+OT Rate Factor	1.5
+Total OT Pay	₹2,430
+🎯 Summary for AI Integration
+You can feed this structured info as:
+✔ Equations
+✔ Variables
+✔ Constraints
+✔ Rules
+✔ Database requirements
+If you want, I can also provide:
+✔ JSON schema for HRMS
+✔ Full REST API workflow for OT approval & payroll
+✔ SQL table structure
+✔ Full Java/Laravel backend OT calculations
+✔ Excel/Google Sheets OT calculator file

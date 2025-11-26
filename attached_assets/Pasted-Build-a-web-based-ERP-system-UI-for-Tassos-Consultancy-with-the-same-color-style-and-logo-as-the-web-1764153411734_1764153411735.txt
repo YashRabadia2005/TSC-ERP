@@ -1,0 +1,123 @@
+Build a web-based ERP system UI for Tassos Consultancy with the same color style and logo as the website https://tassosconsultancy.com
+1. Branding & Theme
+Use a clean, modern UI inspired by https://tassosconsultancy.com
+Color palette (approximate from the site – use as theme variables):
+--primary-blue: #0097D7;  (main accent color)
+--dark-grey: #4B4B4D;
+--mid-grey: #6F6F72;
+--light-grey-bg: #F5F5F7;
+--white: #FFFFFF;
+Typography: use a modern sans-serif font similar to the site (e.g., Poppins or Roboto).
+Overall look: a lot of white space, blue accents for buttons and highlights, grey for text and section titles.
+2. Logo Integration
+Use the same logo as the website:
+https://tassosconsultancy.com/wp-content/uploads/2025/11/TCS-PNG-LOGOwTXT-color.webp
+Place the logo in:
+Top-left of the main app header.
+Login screen.
+Optionally in a small form in the footer.
+Ensure the logo scales nicely and looks sharp on desktop and tablet.
+3. Layout & Navigation
+Create a responsive layout (works on desktop, tablet, and mobile).
+Main structure:
+Top navigation bar: Logo (left), user profile & logout button (right).
+Left sidebar menu with the following ERP sections:
+Dashboard
+Attendance & Time Tracking
+HR & Payroll
+Inventory & Assets
+Finance & Accounting
+CRM / Clients
+Reports & Analytics
+Settings
+Highlight the current section using the primary blue color.
+4. Core Functionality & Buttons (All Working)
+Implement fully working buttons and forms (no dead links). At minimum:
+a) Dashboard
+Show live cards/tiles for key metrics with auto-refresh/live tracking:
+Total active employees
+Today’s present / absent count
+Open tasks / tickets
+Pending approvals
+Add at least one live-updating chart (e.g., attendance trend, sales, or tasks) using dummy data that updates every 5–10 seconds (simulate real-time data).
+b) Attendance & Time Tracking
+Page with:
+Date filters (From / To)
+Employee search bar
+Table showing:
+Employee Name
+Date
+Check-in time
+Check-out time
+Total hours
+Status (Present / Absent / On Leave)
+Buttons that must work:
+Add Manual Entry
+Export to CSV
+Filter / Apply
+Implement full client-side validation and working table interactions (sorting, searching).
+c) HR & Payroll
+Simple employee list with:
+Name, ID, Department, Designation, Status
+Buttons:
+Add Employee
+Edit (opens a form with existing data)
+Deactivate / Activate
+Data should be stored in a local database or JSON (or mock DB) so that changes reflect in the UI while the app is running.
+d) Inventory & Assets
+CRUD interface for assets:
+Asset Name, Category, Location, Assigned To, Status
+Buttons:
+Add Asset, Edit, Delete, Search/Filter
+All actions must update the list on screen.
+e) Finance & Accounting (basic)
+Table of transactions with:
+Date, Voucher No, Type (Income/Expense), Amount, Department
+Filters by date and type.
+Show small summary widgets: Total Income, Total Expense, Net.
+f) CRM / Clients
+Client master list with:
+Name, Organization, Contact, Email, Status
+Buttons:
+Add Client
+View Details
+Edit
+Include a search bar that actually filters the list.
+5. Live Tracking of Data
+Implement live/real-time UI updates using one of:
+WebSocket (preferred, even if simulated), or
+Polling every X seconds to refresh dummy data.
+Examples of live updates:
+Dashboard charts and tiles auto-refresh.
+“Online employees” or “Active sessions” counters update in real time.
+Make sure the UI shows loading states while data is being fetched/updated.
+6. Quality & Testing
+All buttons, links, and forms must be fully functional:
+No dead buttons.
+Form validation (required fields, wrong formats, etc.).
+Clear success and error messages (toasts or alerts).
+Provide basic unit tests or simple end-to-end tests (if possible) for:
+Navigation between modules.
+Adding/editing records in at least one module.
+Handle error states gracefully (e.g., show error banners if data load fails).
+7. Tech Stack (you choose, but must be modern)
+Frontend: React (preferred) or any modern JS framework.
+Styling: TailwindCSS or CSS modules with variables for the color palette.
+Backend: Simple Node/Express or any in-memory/mock backend for demo, with clear APIs for:
+/api/dashboard
+/api/attendance
+/api/employees
+/api/assets
+/api/transactions
+/api/clients
+Structure the project cleanly so it can be extended later.
+8. Final Deliverable
+A fully running ERP web app with:
+Tassos logo integrated.
+Color theme similar to https://tassosconsultancy.com
+All modules and buttons working.
+Live data tracking (simulated) on the dashboard.
+Provide:
+Instructions to run the project.
+Short README explaining modules and how live data is simulated.
+ 

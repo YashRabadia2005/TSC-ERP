@@ -1,0 +1,79 @@
+. Tech & Setup
+Frontend: React (or Vite + React).
+Use a chart library like Recharts or Chart.js.
+Backend: Node.js + Express with simple mock APIs that simulate live data updates (in-memory or random generator).
+2. Metrics & Graphs (All Colorful)
+Create a “Performance Dashboard” page with at least these charts:
+Overall Performance Trend (Line Chart)
+X-axis: Time (days/weeks/months).
+Y-axis: Performance Score (0–100) or KPI index.
+Multiple lines with different colors, e.g.:
+Line 1: Sales Performance
+Line 2: Operations Performance
+Line 3: HR/People Performance
+Use bright, distinct colors for each line.
+Show tooltips and legend.
+Department-wise KPI (Bar or Column Chart)
+X-axis: Departments (Sales, Ops, HR, Finance, IT, etc.).
+Y-axis: KPI value (e.g., target achievement %, productivity score).
+Each bar with a different color.
+Hover tooltip shows department name + value.
+Employee Performance Distribution (Donut / Pie Chart)
+Segments:
+Top Performers
+Meets Expectations
+Needs Improvement
+Use 3–5 contrasting colors.
+Legend + percentage labels.
+Live Organizational Metric (Real-time Widget)
+Small live-updating tile or mini-chart showing, for example:
+“Live Active Employees Online”
+“Live Tickets/Tasks Open”
+Auto-refresh / animate every 5–10 seconds.
+3. Live / Real-time Behavior
+Create a backend endpoint, e.g.:
+GET /api/performance/trends
+GET /api/performance/departments
+GET /api/performance/distribution
+GET /api/performance/live-metric
+Simulate live data by:
+Slightly changing values on each request, or
+Using setInterval on the server to update an in-memory dataset.
+On the frontend:
+Use setInterval or setTimeout to call APIs every 10–15 seconds.
+Smoothly update chart data (no full page reload).
+Show a small “Last updated: HH:MM:SS” label.
+4. UI / UX Requirements
+Place all charts in a single dashboard layout:
+Top: Big line chart (Overall Performance Trend).
+Left bottom: Department bar chart.
+Right bottom: Pie/Donut chart.
+Top-right or header area: Live Metric tile(s).
+Charts must be:
+Colorful (no dull grey-only charts).
+Responsive (work on laptop screen and tablet).
+Add filters:
+Time range selector: [Last 7 days] [Last 30 days] [Last Quarter]
+Metric filter dropdown: choose which KPI to show (e.g. Revenue, Productivity, Attendance).
+5. Interactivity & Details
+Enable:
+Hover tooltips with detailed values.
+Legend to toggle series visibility (e.g., hide Ops line on click).
+Optional:
+On clicking a bar (department), show a small detail panel underneath with:
+Department KPI breakdown.
+Trend mini-sparkline.
+6. Code Quality
+Components:
+PerformanceDashboard
+OverallTrendChart
+DepartmentKpiChart
+PerformanceDistributionChart
+LiveMetricCard
+Clean state management (React hooks).
+No broken buttons or dummy charts:
+Every chart must display real data fetched from backend endpoints.
+Add a short README:
+How to run (commands).
+Which metrics are simulated.
+How often data refreshes.
